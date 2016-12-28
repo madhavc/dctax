@@ -1,13 +1,13 @@
-<?php 
+<?php
 //////////////////////////
 //Specify default values//
 //////////////////////////
 
 //Your E-mail
-$your_email = 'your@email.com';
+$your_email = 'chhura.madhav@gmail.com';
 
 //Default Subject if 'subject' field not specified
-$default_subject = 'From My Contact Form';
+$default_subject = 'DC Tax Consultation';
 
 //Message if 'name' field not specified
 $name_not_specified = 'Please type a valid name';
@@ -29,13 +29,13 @@ $errors = array();
 if(isset($_POST['message']) and isset($_POST['name'])) {
 	if(!empty($_POST['name']))
 		$sender_name  = stripslashes(strip_tags(trim($_POST['name'])));
-	
+
 	if(!empty($_POST['message']))
 		$message      = stripslashes(strip_tags(trim($_POST['message'])));
-	
+
 	if(!empty($_POST['email']))
 		$sender_email = stripslashes(strip_tags(trim($_POST['email'])));
-	
+
 	if(!empty($_POST['subject']))
 		$subject      = stripslashes(strip_tags(trim($_POST['subject'])));
 
