@@ -5163,7 +5163,7 @@ footer.widget_area .widget_popular_posts .sc_tabs_titles .ui-tabs-active a {
 	padding: 0 1em;
 }
 .sc_testimonials .sc_testimonial_content {
-    background: #ff5011;
+    background: #2e2d2d;
 	position:relative;
     padding: 1.5em 3em;
     color: #fff;
@@ -5195,7 +5195,7 @@ footer.widget_area .widget_popular_posts .sc_tabs_titles .ui-tabs-active a {
 	right: 1em;
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
-	border-top: 16px solid #ff5011;
+	border-top: 16px solid #2e2d2d;
 }
 .sc_testimonials .box-info-tes {
     display: block;
