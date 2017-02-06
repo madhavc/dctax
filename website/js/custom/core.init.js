@@ -157,7 +157,7 @@ function ancora_ready_actions() {
 		}
 	});
 
-	
+
 
 	// Media setup
     //----------------------------------------------
@@ -200,7 +200,7 @@ function ancora_ready_actions() {
 			return false;
 		}
 	}));
-	
+
 	// Init superfish menus
 	ancora_init_sfmenu('.menu_main_wrap ul#menu_main, .menu_user_wrap ul#menu_user');
 
@@ -331,7 +331,7 @@ function ancora_ready_actions() {
 			e.preventDefault();
 		return rez;
 	});
-	
+
 	// Registration form
 	jQuery('.popup_form.registration_form').submit(function(e){
 		"use strict";
@@ -414,7 +414,7 @@ function ancora_ready_actions() {
 
 	// Init hidden elements (if exists)
 	if (window.ancora_init_hidden_elements) ancora_init_hidden_elements(jQuery('body').eq(0));
-	
+
 } //end ready
 
 
@@ -443,7 +443,7 @@ function ancora_scroll_actions() {
 		scroll_to_top_button.addClass('show');
 	else
 		scroll_to_top_button.removeClass('show');
-	
+
 	// Fix/unfix top panel
 	if (!jQuery('body').hasClass('responsive_menu') && ANCORA_GLOBALS['menu_fixed']) {
 		var slider_height = 0;
@@ -486,13 +486,13 @@ function ancora_scroll_actions() {
 		else
 			jQuery(this).removeClass('current');
 	});
-	
+
 	// Infinite pagination
 	ancora_infinite_scroll()
-	
+
 	// Parallax scroll
 	ancora_parallax_scroll();
-	
+
 	// Scroll actions for shortcodes
 	ancora_animation_shortcodes();
 }
@@ -521,12 +521,12 @@ function ancora_parallax_scroll(){
 		var offsetPrx = Math.max(jQuery(this).offset().top, windowHeight);
 		if ( offsetPrx <= scrollTops + windowHeight ) {
 			var speed  = Number(jQuery(this).data('parallax-speed'));
-			var xpos   = jQuery(this).data('parallax-x-pos');  
+			var xpos   = jQuery(this).data('parallax-x-pos');
 			var ypos   = Math.round((offsetPrx - scrollTops - windowHeight) * speed + (speed < 0 ? windowHeight*speed : 0));
 			jQuery(this).find('.sc_parallax_content').css('backgroundPosition', xpos+' '+ypos+'px');
 			// Uncomment next line if you want parallax video (else - video position is static)
 			jQuery(this).find('div.sc_video_bg').css('top', ypos+'px');
-		} 
+		}
 	});
 }
 
@@ -682,7 +682,7 @@ function ancora_video_dimensions() {
 			h1 = h;
 			w1 = Math.ceil(h1 * ratio);
 		}
-		if (w1 < w) { 
+		if (w1 < w) {
 			w1 = w;
 			h1 = Math.ceil(w1 / ratio);
 		}
@@ -725,7 +725,7 @@ function ancora_video_dimensions() {
 // Resize fullscreen video background
 function ancora_resize_video_background() {
 	var bg = jQuery('.video_bg');
-	if (bg.length < 1) 
+	if (bg.length < 1)
 		return;
 	if (ANCORA_GLOBALS['media_elements_enabled'] && bg.find('.mejs-video').length == 0)  {
 		setTimeout(ancora_resize_video_background, 100);
@@ -742,7 +742,7 @@ function ancora_resize_video_background() {
 		h1 = h;
 		w1 = Math.ceil(h1 * ratio);
 	}
-	if (w1 < w) { 
+	if (w1 < w) {
 		w1 = w;
 		h1 = Math.ceil(w1 / ratio);
 	}
@@ -776,10 +776,10 @@ function ancora_set_mejs_player_dimensions(video, w, h) {
 // Resize Fullscreen Slider
 function ancora_resize_fullscreen_slider() {
 	var slider_wrap = jQuery('.slider_wrap.slider_fullscreen');
-	if (slider_wrap.length < 1) 
+	if (slider_wrap.length < 1)
 		return;
 	var slider = slider_wrap.find('.sc_slider_swiper');
-	if (slider.length < 1) 
+	if (slider.length < 1)
 		return;
 	var h = jQuery(window).height() - jQuery('#wpadminbar').height() - (jQuery('body').hasClass('top_panel_above') && !jQuery('body').hasClass('.top_panel_fixed') ? jQuery('.top_panel_wrap').height() : 0);
 	slider.height(h);
@@ -810,7 +810,7 @@ function ancora_init_sfmenu(selector) {
 			dropShadows: false,
 			onBeforeShow: function(ul) {
 				if (jQuery(this).parents("ul").length > 1){
-					var w = jQuery(window).width();  
+					var w = jQuery(window).width();
 					var par_offset = jQuery(this).parents("ul").offset().left;
 					var par_width  = jQuery(this).parents("ul").outerWidth();
 					var ul_width   = jQuery(this).outerWidth();
@@ -900,7 +900,7 @@ function ancora_init_isotope() {
 			isotope_container.addClass('inited').find('.isotope_item').animate({opacity: 1}, 200, function () { jQuery(this).addClass('isotope_item_show'); });
 			return;
 		}
-		
+
 		// Init isotope with timeout
 		setTimeout(function() {
 			isotope_container.addClass('inited').isotope({
@@ -911,22 +911,22 @@ function ancora_init_isotope() {
 					queue: false
 				}
 			});
-	
+
 			// Show elements
-			isotope_container.find('.isotope_item').animate({opacity: 1}, 200, function () { 
-				jQuery(this).addClass('isotope_item_show'); 
+			isotope_container.find('.isotope_item').animate({opacity: 1}, 200, function () {
+				jQuery(this).addClass('isotope_item_show');
 			});
-			
+
 		}, 500);
 
-	});		
+	});
 }
 
 function ancora_init_appended_isotope(posts_container, filters) {
 	"use strict";
-	
+
 	if (posts_container.parents('.sc_scroll_horizontal').length > 0) return;
-	
+
 	if (!ancora_check_images_complete(posts_container) && ANCORA_GLOBALS['isotope_init_counter']++ < 30) {
 		setTimeout(function() { ancora_init_appended_isotope(posts_container, filters); }, 200);
 		return;
@@ -960,7 +960,7 @@ function ancora_init_post_formats() {
 
 	// MediaElement init
 	ancora_init_media_elements(jQuery('body'));
-	
+
 	// Isotope first init
 	if (jQuery('.isotope_wrap:not(.inited)').length > 0) {
 		ANCORA_GLOBALS['isotope_init_counter'] = 0;
@@ -996,7 +996,7 @@ function ancora_init_post_formats() {
 				closeBtnInside: true,
 				fixedContentPos: true,
 				midClick: true,
-				//removalDelay: 500, 
+				//removalDelay: 500,
 				preloader: true,
 				tLoading: ANCORA_GLOBALS['strings']['magnific_loading'],
 				gallery:{
@@ -1250,8 +1250,8 @@ function ancora_login_validate(form) {
 			result_box.toggleClass('sc_infobox_style_error', false).toggleClass('sc_infobox_style_success', false);
 			if (rez.error === '') {
 				result_box.addClass('sc_infobox sc_infobox_style_success').html(ANCORA_GLOBALS['strings']['login_success']);
-				setTimeout(function() { 
-					location.reload(); 
+				setTimeout(function() {
+					location.reload();
 					}, 3000);
 			} else {
 				result_box.addClass('sc_infobox sc_infobox_style_error').html(ANCORA_GLOBALS['strings']['login_failed'] + '<br>' + rez.error);
@@ -1263,7 +1263,7 @@ function ancora_login_validate(form) {
 }
 
 
-// Registration form 
+// Registration form
 function ancora_registration_validate(form) {
 	"use strict";
 	form.find('input').removeClass('error_fields_class');
@@ -1311,8 +1311,8 @@ function ancora_registration_validate(form) {
 			result_box.toggleClass('sc_infobox_style_error', false).toggleClass('sc_infobox_style_success', false);
 			if (rez.error === '') {
 				result_box.addClass('sc_infobox sc_infobox_style_success').html(ANCORA_GLOBALS['strings']['registration_success']);
-				setTimeout(function() { 
-					jQuery('.popup_login_link').trigger('click'); 
+				setTimeout(function() {
+					jQuery('.popup_login_link').trigger('click');
 					}, 3000);
 			} else {
 				result_box.addClass('sc_infobox sc_infobox_style_error').html(ANCORA_GLOBALS['strings']['registration_failed'] + ' ' + rez.error);
@@ -1328,6 +1328,7 @@ function ancora_registration_validate(form) {
 function ancora_contact_form_validate(form){
 	"use strict";
 	var url = form.attr('action');
+	console.log(url);
 	if (url == '') return false;
 	form.find('input').removeClass('error_fields_class');
 	var error = false;
@@ -1373,6 +1374,7 @@ function ancora_contact_form_validate(form){
 		}).done(function(response) {
 			"use strict";
 			var rez = JSON.parse(response);
+			cosnole.log(rez);
 			var result = form.find(".result").toggleClass("sc_infobox_style_error", false).toggleClass("sc_infobox_style_success", false);
 			if (rez.error === '') {
 				form.get(0).reset();
